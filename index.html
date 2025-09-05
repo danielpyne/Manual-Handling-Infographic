@@ -5,127 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Manual Handling for Hair Professionals · Interactive Infographic</title>
   <style>
-    body {
-      margin: 0;
-      font-family: "Perpetua", Georgia, serif;
-      background: #ffffff;
-      color: #0b0b0c;
-      line-height: 1.6;
+    :root{
+      --fg:#0b0b0c;
+      --bg:#ffffff;
+      --muted:#4b4e53;
+      --border:#dcdcdc;
+      --radius:16px;
+      --gap:16px;
+      --p1:#E7F2FF; --p2:#F2E9FF; --p3:#FFF3D9;
+      --p4:#EAF7F1; --p5:#FFECEE; --p6:#F1F5E8;
     }
-    h1, h2, h3 {
-      font-family: "Alta-Regular", Georgia, serif;
-      font-weight: 400;
-      color: #0b0b0c;
+    html, body{height:100%;}
+    body{
+      margin:0;
+      font-family:"Perpetua", Georgia, serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.6;
     }
-    .wrap {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+    .bg-pattern{
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        radial-gradient(900px 600px at 20% 15%, rgba(0,0,0,.05), transparent 65%),
+        radial-gradient(900px 600px at 80% 85%, rgba(0,0,0,.04), transparent 55%),
+        repeating-linear-gradient(45deg, rgba(0,0,0,.025) 0 1px, transparent 1px 16px);
+      opacity:.55;
     }
-    .section {
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      background: #f9f9f9;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .tip {
-      border-radius: 12px;
-      padding: 14px;
-      border: 1px solid #ddd;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      color: #fff;
-    }
-    .tip:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    .tip h3 { margin-top: 0; font-size: 18px; }
-    .tip p { font-size: 14px; }
-    .tip.light { color: #0b0b0c; } /* dark text for light backgrounds */
-    .interactive-info {
-      margin-top: 10px;
-      font-size: 13px;
-      display: none;
-    }
-    .tip:hover .interactive-info { display: block; }
+    .wrap{position:relative;z-index:1;width:min(1120px,100%);margin:0 auto;padding: clamp(14px, 2.5vw, 28px);display:grid;gap:var(--gap);}
+    header{border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.9);backdrop-filter:blur(3px);padding:20px;}
+    h1,h2,h3{font-family:"Alta-Regular", Georgia, serif;font-weight:400;margin:0 0 6px 0;}
+    h1{font-size:clamp(24px,3.4vw,36px);}h2{font-size:clamp(18px,2.2vw,24px);}h3{font-size:18px;}
+    .muted{color:var(--muted);font-size:14px;}
+    .grid{display:grid;gap:var(--gap);} .grid-2{grid-template-columns:1.2fr .8fr;} .grid-3{grid-template-columns:repeat(3,1fr);}
+    @media(max-width:980px){.grid-2{grid-template-columns:1fr;}}@media(max-width:760px){.grid-3{grid-template-columns:1fr;}}
+    .panel{border:1px solid var(--border);border-radius:var(--radius);background:#fff;padding:14px;}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap);}
+    .card{border-radius:var(--radius);border:1px solid var(--border);padding:14px;background:var(--p1);transition:transform .25s, box-shadow .25s;position:relative;overflow:hidden;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.08);}
+    .card .icon{font-size:22px;margin-right:6px;}
+    .card.p2{background:var(--p2);} .card.p3{background:var(--p3);} .card.p4{background:var(--p4);} .card.p5{background:var(--p5);} .card.p6{background:var(--p6);}
+    details{border:1px solid var(--border);border-radius:12px;background:#fff;padding:10px 12px;}
+    summary{list-style:none;cursor:pointer;}summary::-webkit-details-marker{display:none;}
+    summary .sumline{display:flex;align-items:center;gap:8px;}.caret{transition:transform .25s;}details[open] .caret{transform:rotate(90deg);}
+    .checklist{display:grid;gap:10px;}.check{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;}
+    .check input{width:18px;height:18px;}
+    .progress{width:100%;height:10px;background:#f0f0f0;border-radius:999px;overflow:hidden;border:1px solid var(--border);} .bar{height:100%;width:0%;background:#9fbcd4;transition:width .35s;}
+    footer{text-align:center;font-size:12px;opacity:.7;margin-top:20px;}
   </style>
 </head>
 <body>
+  <div class="bg-pattern"></div>
   <div class="wrap">
-    <header class="section">
+    <header>
       <h1>Manual Handling for Hair Professionals</h1>
-      <p>Stay safe at work by following best practices when lifting, reaching, and moving equipment in the salon.</p>
+      <p class="muted">A guide to safe lifting and moving in the salon — covering legislation, importance, and correct handling of objects.</p>
     </header>
 
-    <section class="section">
-      <h2>Legislation Overview</h2>
-      <p>The UK <strong>Manual Handling Operations Regulations 1992 (MHOR)</strong> require employers to avoid hazardous manual handling where possible, assess the risk of injury, and reduce the risk by implementing safe systems of work. Employees must follow training and use provided equipment correctly.</p>
+    <section class="panel">
+      <h2>Legislation</h2>
+      <p>The <strong>Manual Handling Operations Regulations 1992 (MHOR)</strong> require employers to:</p>
       <ul>
-        <li>Employers should provide training and equipment such as trolleys or lifting aids.</li>
-        <li>Employees should assess loads before lifting and request assistance if needed.</li>
-        <li>Risk assessments should be documented and regularly reviewed.</li>
+        <li>Avoid hazardous manual handling where possible.</li>
+        <li>Assess risks of injury when manual handling cannot be avoided.</li>
+        <li>Reduce risks by implementing safe systems of work.</li>
       </ul>
+      <p>Employees must follow training, use equipment properly, and report risks.</p>
     </section>
 
-    <section class="section">
-      <h2>Key Tips</h2>
-      <div class="grid">
-        <div class="tip" style="background:#7dfcff;" class="light">
-          <h3>Lift with Legs</h3>
-          <p>Bend your knees, not your back, when picking up heavy equipment like dryers or chairs.</p>
-          <div class="interactive-info">💡 Did you know? Lifting with your legs reduces strain on your spinal discs.</div>
+    <section class="grid grid-2">
+      <div class="panel">
+        <h2>Why It Matters</h2>
+        <div class="cards">
+          <div class="card p2"><h3><span class="icon">💪</span>Health</h3><p>Reduces risk of musculoskeletal disorders, back injuries, and strain.</p></div>
+          <div class="card p3"><h3><span class="icon">⏱️</span>Efficiency</h3><p>Safe techniques save time and energy, improving overall workflow.</p></div>
+          <div class="card p4"><h3><span class="icon">😊</span>Wellbeing</h3><p>Protects staff wellbeing and morale, reducing absence and turnover.</p></div>
         </div>
-        <div class="tip" style="background:#ff6ec7;">
-          <h3>Keep Close</h3>
-          <p>Hold tools and products close to your body to reduce strain on your back and shoulders.</p>
-          <div class="interactive-info">💡 Keeping loads close improves your balance and reduces injury risk.</div>
-        </div>
-        <div class="tip" style="background:#ffd966;" class="light">
-          <h3>Avoid Twisting</h3>
-          <p>Turn your whole body instead of twisting at the waist when moving around the salon.</p>
-          <div class="interactive-info">💡 Pivot with your feet to keep your spine in a neutral position.</div>
-        </div>
-        <div class="tip" style="background:#6fa8dc;">
-          <h3>Use Assistance</h3>
-          <p>Ask for help or use a trolley when lifting or transporting heavy items like product boxes.</p>
-          <div class="interactive-info">💡 Using trolleys reduces the number of lifts and helps avoid fatigue.</div>
+      </div>
+      <div class="panel">
+        <h2>Common Risks in Salons</h2>
+        <div class="cards">
+          <div class="card p5"><h3><span class="icon">📦</span>Product Boxes</h3><p>Can be heavy or awkward, leading to back strain if lifted incorrectly.</p></div>
+          <div class="card p6"><h3><span class="icon">💺</span>Salon Chairs</h3><p>Bulky to move — pushing is safer than lifting.</p></div>
+          <div class="card p1"><h3><span class="icon">🚿</span>Shampoo Basins</h3><p>Must be emptied and handled with assistance when moved.</p></div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Handling Different Objects</h2>
-      <div class="grid">
-        <div class="tip" style="background:#93c47d;">
-          <h3>Boxes of Products</h3>
-          <p>Test the weight first. If too heavy, split the contents or team lift. Keep the box close to your body.</p>
-          <div class="interactive-info">✅ Always check for awkward shapes that may shift unexpectedly.</div>
-        </div>
-        <div class="tip" style="background:#e06666;">
-          <h3>Salon Chairs</h3>
-          <p>Lower the chair height before moving. Push rather than pull and avoid lifting alone.</p>
-          <div class="interactive-info">✅ Team lifting is recommended if moving chairs over long distances.</div>
-        </div>
-        <div class="tip" style="background:#f6b26b;" class="light">
-          <h3>Shampoo Basins</h3>
-          <p>Adjust the basin height before use. If moving, empty water first and ask for help.</p>
-          <div class="interactive-info">✅ Ensure pipes and connections are secure before moving basins.</div>
-        </div>
-        <div class="tip" style="background:#8e7cc3;">
-          <h3>Trolleys & Kits</h3>
-          <p>Place heavier items on lower shelves. Push the trolley with both hands to avoid twisting your back.</p>
-          <div class="interactive-info">✅ Lock wheels when stationary to prevent sudden shifts.</div>
-        </div>
+    <section class="panel">
+      <h2>How to Handle Objects Correctly</h2>
+      <div class="cards">
+        <div class="card p1"><h3><span class="icon">📦</span>Boxes</h3><p>Test weight first. Bend knees, keep box close, avoid twisting. Use a trolley if too heavy.</p></div>
+        <div class="card p3"><h3><span class="icon">💺</span>Chairs</h3><p>Lower chair height, push instead of lift, and ask for help when needed.</p></div>
+        <div class="card p4"><h3><span class="icon">🚿</span>Basins</h3><p>Empty water before moving, and carry with a colleague if necessary.</p></div>
+        <div class="card p2"><h3><span class="icon">🛒</span>Trolleys</h3><p>Place heavy items on lower shelves. Push with both hands to keep back straight.</p></div>
       </div>
     </section>
 
-    <footer style="text-align:center; font-size:12px; opacity:0.7;">
-      Interactive infographic · Embed into Genially · Brand theme applied
-    </footer>
+    <section class="grid grid-2">
+      <div class="panel">
+        <h2>Scenarios</h2>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Lifting a delivery box</span></summary><p>Check weight, plan route, bend knees, lift smoothly, avoid twisting.</p></details>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Moving a salon chair</span></summary><p>Adjust height, push with legs not back, clear pathway first.</p></details>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Using a trolley</span></summary><p>Distribute weight evenly, push not pull, ensure wheels move freely.</p></details>
+      </div>
+      <div class="panel">
+        <h2>Common Mistakes</h2>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Twisting while lifting</span></summary><p>Pivot feet instead, keeping load close to your body.</p></details>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Overloading trolleys</span></summary><p>Spread load, heavier items low, never stack above eye level.</p></details>
+        <details><summary><span class="sumline"><span class="caret">▶</span> Ignoring warning signs</span></summary><p>Stop if you feel pain or strain — report hazards early.</p></details>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="row"><h2>Safe Handling Checklist</h2><span class="muted" id="progText">0% complete</span></div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="checklist" id="checklist"></div>
+    </section>
+
+    <footer class="muted">Interactive infographic · Manual Handling for Hair Professionals · Muted design, black text, subtle background</footer>
   </div>
+
+  <script>
+    const CHECKS = [
+      'I assess loads before lifting',
+      'I bend knees and keep back straight',
+      'I avoid twisting when carrying',
+      'I keep loads close to my body',
+      'I use assistance or trolleys when needed',
+      'I report hazards or unsafe practices',
+      'I follow MHOR 1992 requirements'
+    ];
+    const list = document.getElementById('checklist');
+    const bar = document.getElementById('bar');
+    const progText = document.getElementById('progText');
+    const KEY = 'mh_checklist_v1';
+
+    function renderChecklist(){
+      const saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+      list.innerHTML = '';
+      CHECKS.forEach((txt,i)=>{
+        const row=document.createElement('div');row.className='check';
+        const box=document.createElement('input');box.type='checkbox';box.id='c'+i;box.checked=!!saved[i];box.addEventListener('change',save);
+        const lab=document.createElement('label');lab.setAttribute('for','c'+i);lab.textContent=txt;
+        row.appendChild(box);row.appendChild(lab);list.appendChild(row);
+      });
+      updateProgress();
+    }
+    function save(){
+      const boxes=Array.from(list.querySelectorAll('input[type="checkbox"]')).map(b=>b.checked);
+      localStorage.setItem(KEY,JSON.stringify(boxes));
+      updateProgress();
+    }
+    function updateProgress(){
+      const boxes=list.querySelectorAll('input[type="checkbox"]');
+      const checked=Array.from(boxes).filter(b=>b.checked).length;
+      const pct=Math.round((checked/boxes.length)*100);
+      bar.style.width=pct+'%';progText.textContent=pct+'% complete';
+    }
+    renderChecklist();
+  </script>
 </body>
 </html>
