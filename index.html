@@ -5,13 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Manual Handling for Hair Professionals · Interactive Infographic</title>
   <style>
-    /* Branding: Alta-Regular for titles, Perpetua for body, white background */
     body {
       margin: 0;
       font-family: "Perpetua", Georgia, serif;
       background: #ffffff;
       color: #0b0b0c;
-      -webkit-font-smoothing: antialiased;
       line-height: 1.6;
     }
     h1, h2, h3 {
@@ -31,41 +29,29 @@
       border: 1px solid #ccc;
       background: #f9f9f9;
     }
-    .highlight {
-      color: #ff6ec7;
-    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
     .tip {
-      background: #fff;
       border-radius: 12px;
       padding: 14px;
       border: 1px solid #ddd;
-      transition: transform 0.3s;
       cursor: pointer;
-    }
-    .tip:hover { transform: scale(1.02); }
-    .tip h3 { margin-top: 0; color: #7dfcff; font-size: 18px; }
-    .quiz {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #0b0b0c;
+      transition: transform 0.3s, box-shadow 0.3s;
       color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      margin-top: 10px;
     }
-    button:hover { background: #7dfcff; color: #0b0b0c; }
-    .result { margin-top: 10px; font-weight: bold; }
+    .tip:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .tip h3 { margin-top: 0; font-size: 18px; }
+    .tip p { font-size: 14px; }
+    .tip.light { color: #0b0b0c; } /* dark text for light backgrounds */
+    .interactive-info {
+      margin-top: 10px;
+      font-size: 13px;
+      display: none;
+    }
+    .tip:hover .interactive-info { display: block; }
   </style>
 </head>
 <body>
@@ -76,7 +62,7 @@
     </header>
 
     <section class="section">
-      <h2 class="highlight">Legislation Overview</h2>
+      <h2>Legislation Overview</h2>
       <p>The UK <strong>Manual Handling Operations Regulations 1992 (MHOR)</strong> require employers to avoid hazardous manual handling where possible, assess the risk of injury, and reduce the risk by implementing safe systems of work. Employees must follow training and use provided equipment correctly.</p>
       <ul>
         <li>Employers should provide training and equipment such as trolleys or lifting aids.</li>
@@ -86,74 +72,60 @@
     </section>
 
     <section class="section">
-      <h2 class="highlight">Key Tips</h2>
+      <h2>Key Tips</h2>
       <div class="grid">
-        <div class="tip">
+        <div class="tip" style="background:#7dfcff;" class="light">
           <h3>Lift with Legs</h3>
           <p>Bend your knees, not your back, when picking up heavy equipment like dryers or chairs.</p>
+          <div class="interactive-info">💡 Did you know? Lifting with your legs reduces strain on your spinal discs.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#ff6ec7;">
           <h3>Keep Close</h3>
           <p>Hold tools and products close to your body to reduce strain on your back and shoulders.</p>
+          <div class="interactive-info">💡 Keeping loads close improves your balance and reduces injury risk.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#ffd966;" class="light">
           <h3>Avoid Twisting</h3>
           <p>Turn your whole body instead of twisting at the waist when moving around the salon.</p>
+          <div class="interactive-info">💡 Pivot with your feet to keep your spine in a neutral position.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#6fa8dc;">
           <h3>Use Assistance</h3>
           <p>Ask for help or use a trolley when lifting or transporting heavy items like product boxes.</p>
+          <div class="interactive-info">💡 Using trolleys reduces the number of lifts and helps avoid fatigue.</div>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="highlight">Handling Different Objects</h2>
+      <h2>Handling Different Objects</h2>
       <div class="grid">
-        <div class="tip">
+        <div class="tip" style="background:#93c47d;">
           <h3>Boxes of Products</h3>
           <p>Test the weight first. If too heavy, split the contents or team lift. Keep the box close to your body.</p>
+          <div class="interactive-info">✅ Always check for awkward shapes that may shift unexpectedly.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#e06666;">
           <h3>Salon Chairs</h3>
           <p>Lower the chair height before moving. Push rather than pull and avoid lifting alone.</p>
+          <div class="interactive-info">✅ Team lifting is recommended if moving chairs over long distances.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#f6b26b;" class="light">
           <h3>Shampoo Basins</h3>
           <p>Adjust the basin height before use. If moving, empty water first and ask for help.</p>
+          <div class="interactive-info">✅ Ensure pipes and connections are secure before moving basins.</div>
         </div>
-        <div class="tip">
+        <div class="tip" style="background:#8e7cc3;">
           <h3>Trolleys & Kits</h3>
           <p>Place heavier items on lower shelves. Push the trolley with both hands to avoid twisting your back.</p>
+          <div class="interactive-info">✅ Lock wheels when stationary to prevent sudden shifts.</div>
         </div>
       </div>
     </section>
 
-    <section class="section quiz">
-      <h2 class="highlight">Quick Check</h2>
-      <p><strong>Question:</strong> What’s the safest way to lift a heavy box of hair products?</p>
-      <button onclick="checkAnswer('legs')">Bend your knees and lift with your legs</button><br>
-      <button onclick="checkAnswer('back')">Keep your legs straight and bend at the waist</button><br>
-      <button onclick="checkAnswer('twist')">Lift and twist quickly to save time</button>
-      <div id="result" class="result"></div>
-    </section>
-
-    <footer style="text-align:center; font-size:12px; opacity:0.7; margin-top:20px;">
-      Interactive infographic · Embed into Genially · White theme with Alta-Regular & Perpetua fonts
+    <footer style="text-align:center; font-size:12px; opacity:0.7;">
+      Interactive infographic · Embed into Genially · Brand theme applied
     </footer>
   </div>
-
-  <script>
-    function checkAnswer(answer){
-      const result = document.getElementById('result');
-      if(answer === 'legs'){
-        result.textContent = '✅ Correct! Always bend your knees and lift with your legs.';
-        result.style.color = '#0b0b0c';
-      } else {
-        result.textContent = '❌ Not quite. Remember to bend your knees, not your back!';
-        result.style.color = '#ff6ec7';
-      }
-    }
-  </script>
 </body>
 </html>

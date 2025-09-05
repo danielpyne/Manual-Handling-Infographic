@@ -3,10 +3,10 @@
 This interactive infographic provides guidance on safe manual handling practices for hair professionals.
 
 ## Features
-- Legislation overview (MHOR 1992)
-- Key safe lifting tips
-- Guidance for handling different objects (boxes, chairs, basins, trolleys)
-- Quick quiz for knowledge check
+- White background with coloured info-boxes
+- Text automatically white/black based on box colour
+- Hover interactivity (extra tips reveal when hovering on boxes)
+- Legislation overview and object handling guidance
 
 ## How to publish
 1. Upload these files to a new GitHub repository.
