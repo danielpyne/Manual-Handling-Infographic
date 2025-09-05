@@ -5,81 +5,92 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Manual Handling for Hair Professionals · Interactive Infographic</title>
   <style>
-    /* Branding: Alta-Regular / Perpetua, black-white-chrome with accent pops */
+    /* Branding: Alta-Regular for titles, Perpetua for body, white background */
     body {
       margin: 0;
-      font-family: "Alta-Regular", "Perpetua", Georgia, serif;
-      background: #0b0b0c;
-      color: #f2f3f4;
+      font-family: "Perpetua", Georgia, serif;
+      background: #ffffff;
+      color: #0b0b0c;
       -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
-    h1, h2 { font-weight: 400; }
+    h1, h2, h3 {
+      font-family: "Alta-Regular", Georgia, serif;
+      font-weight: 400;
+      color: #0b0b0c;
+    }
     .wrap {
       max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
-    .chrome-box {
-      border: 1px solid transparent;
-      border-radius: 18px;
-      background: linear-gradient(#0b0b0c, #0b0b0c) padding-box,
-                  linear-gradient(135deg, #cfcfcf, #8f8f90, #cfcfcf) border-box;
+    .section {
+      border-radius: 14px;
       padding: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,.45);
+      border: 1px solid #ccc;
+      background: #f9f9f9;
     }
     .highlight {
-      color: #7dfcff;
+      color: #ff6ec7;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
     .tip {
-      background: #141416;
-      border-radius: 14px;
+      background: #fff;
+      border-radius: 12px;
       padding: 14px;
-      border: 1px solid #8f8f90;
+      border: 1px solid #ddd;
       transition: transform 0.3s;
       cursor: pointer;
     }
-    .tip:hover { transform: scale(1.03); }
-    .tip h3 { margin-top: 0; color: #ff6ec7; font-size: 18px; }
-    .tip p { font-size: 14px; line-height: 1.4; }
+    .tip:hover { transform: scale(1.02); }
+    .tip h3 { margin-top: 0; color: #7dfcff; font-size: 18px; }
     .quiz {
-      background: #141416;
-      border-radius: 14px;
+      background: #fff;
+      border-radius: 12px;
       padding: 20px;
-      border: 1px solid #cfcfcf;
+      border: 1px solid #ccc;
     }
     button {
-      background: linear-gradient(#0e0f11, #0e0f11) padding-box,
-                  linear-gradient(135deg, #cfcfcf, #8f8f90) border-box;
-      color: #f2f3f4;
-      border: 1px solid transparent;
-      border-radius: 12px;
+      background: #0b0b0c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       padding: 8px 12px;
       cursor: pointer;
       margin-top: 10px;
     }
-    button:hover { box-shadow: 0 0 0 2px #7dfcff; }
+    button:hover { background: #7dfcff; color: #0b0b0c; }
     .result { margin-top: 10px; font-weight: bold; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <header class="chrome-box">
+    <header class="section">
       <h1>Manual Handling for Hair Professionals</h1>
-      <p>Stay safe at work by following best practices when lifting, reaching, and moving equipment.</p>
+      <p>Stay safe at work by following best practices when lifting, reaching, and moving equipment in the salon.</p>
     </header>
 
-    <section class="chrome-box">
+    <section class="section">
+      <h2 class="highlight">Legislation Overview</h2>
+      <p>The UK <strong>Manual Handling Operations Regulations 1992 (MHOR)</strong> require employers to avoid hazardous manual handling where possible, assess the risk of injury, and reduce the risk by implementing safe systems of work. Employees must follow training and use provided equipment correctly.</p>
+      <ul>
+        <li>Employers should provide training and equipment such as trolleys or lifting aids.</li>
+        <li>Employees should assess loads before lifting and request assistance if needed.</li>
+        <li>Risk assessments should be documented and regularly reviewed.</li>
+      </ul>
+    </section>
+
+    <section class="section">
       <h2 class="highlight">Key Tips</h2>
       <div class="grid">
         <div class="tip">
           <h3>Lift with Legs</h3>
-          <p>Bend your knees, not your back, when picking up heavy hairdressing equipment like dryers or chairs.</p>
+          <p>Bend your knees, not your back, when picking up heavy equipment like dryers or chairs.</p>
         </div>
         <div class="tip">
           <h3>Keep Close</h3>
@@ -96,7 +107,29 @@
       </div>
     </section>
 
-    <section class="chrome-box quiz">
+    <section class="section">
+      <h2 class="highlight">Handling Different Objects</h2>
+      <div class="grid">
+        <div class="tip">
+          <h3>Boxes of Products</h3>
+          <p>Test the weight first. If too heavy, split the contents or team lift. Keep the box close to your body.</p>
+        </div>
+        <div class="tip">
+          <h3>Salon Chairs</h3>
+          <p>Lower the chair height before moving. Push rather than pull and avoid lifting alone.</p>
+        </div>
+        <div class="tip">
+          <h3>Shampoo Basins</h3>
+          <p>Adjust the basin height before use. If moving, empty water first and ask for help.</p>
+        </div>
+        <div class="tip">
+          <h3>Trolleys & Kits</h3>
+          <p>Place heavier items on lower shelves. Push the trolley with both hands to avoid twisting your back.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quiz">
       <h2 class="highlight">Quick Check</h2>
       <p><strong>Question:</strong> What’s the safest way to lift a heavy box of hair products?</p>
       <button onclick="checkAnswer('legs')">Bend your knees and lift with your legs</button><br>
@@ -105,8 +138,8 @@
       <div id="result" class="result"></div>
     </section>
 
-    <footer style="text-align:center; font-size:12px; opacity:0.7;">
-      Interactive infographic · Embed into Genially · Brand theme applied
+    <footer style="text-align:center; font-size:12px; opacity:0.7; margin-top:20px;">
+      Interactive infographic · Embed into Genially · White theme with Alta-Regular & Perpetua fonts
     </footer>
   </div>
 
@@ -115,7 +148,7 @@
       const result = document.getElementById('result');
       if(answer === 'legs'){
         result.textContent = '✅ Correct! Always bend your knees and lift with your legs.';
-        result.style.color = '#7dfcff';
+        result.style.color = '#0b0b0c';
       } else {
         result.textContent = '❌ Not quite. Remember to bend your knees, not your back!';
         result.style.color = '#ff6ec7';
